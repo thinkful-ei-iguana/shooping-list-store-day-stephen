@@ -1,3 +1,5 @@
+'use strict';
+
 const store = {
   items: [
     { id: cuid(), name: 'apples', checked: false },
@@ -26,6 +28,11 @@ const generateItemElement = function (item) {
         <button class='shopping-item-delete js-item-delete'>
           <span class='button-label'>delete</span>
         </button>
+        <form>
+          <input type='text' class='edit-item-input js-edit-item-input'></input>
+          <button class='edit-item js-edit-item'>
+            <span class='button-label'>Edit Item</span>
+          </button>
       </div>
     </li>`;
 };
