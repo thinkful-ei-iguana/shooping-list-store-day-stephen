@@ -33,6 +33,7 @@ const generateItemElement = function (item) {
           <button class='edit-item js-edit-item'>
             <span class='button-label'>Edit Item</span>
           </button>
+        </form>
       </div>
     </li>`;
 };
@@ -151,6 +152,23 @@ const handleToggleFilterClick = function () {
     render();
   });
 };
+
+const editItemInStore = function (item, id) {
+  const items = store.items;
+  const itemToChange = items.find(item => item.id === id);
+  itemToChange.name = item;
+}
+
+const handleEditItem = function () {
+  $('js-shopping-list').on('click', '.js-edit-item', event => {
+    event.preventDefault;
+    const newItemName = $('js-edit-item-input').val();
+    $('js-edit-item-input').val('');
+    const id = getItemIdFromElement(event.currentTarget);
+    editItemInStore(newItemName, id);
+    render();
+  });
+}
 
 /**
  * This function will be our callback when the
