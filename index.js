@@ -29,7 +29,7 @@ const generateItemElement = function (item) {
           <span class='button-label'>delete</span>
         </button>
         <form>
-          <input type='text' class='edit-item-input js-edit-item-input'></input>
+          <input type='text' class='edit-item-input js-edit-item-input' id=></input>
           <button class='edit-item js-edit-item'>
             <span class='button-label'>Edit Item</span>
           </button>
@@ -160,14 +160,11 @@ const editItemInStore = function (item, id) {
 };
 
 const handleEditItem = function () {
-  $('js-shopping-list').on('click', '.js-edit-item', event => {
+  $('.js-shopping-list').on('click', '.js-edit-item', event => {
     event.preventDefault;
-    const newItemName = $('js-edit-item-input').val();
+    const newItemName = $('.js-edit-item-input').val();
     const id = getItemIdFromElement(event.currentTarget);
-    console.log(newItemName);
-    console.log(id);
     editItemInStore(newItemName, id);
-    $('js-edit-item-input').val('');
     render();
   });
 };
