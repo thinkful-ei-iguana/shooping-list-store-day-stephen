@@ -157,18 +157,20 @@ const editItemInStore = function (item, id) {
   const items = store.items;
   const itemToChange = items.find(item => item.id === id);
   itemToChange.name = item;
-}
+};
 
 const handleEditItem = function () {
   $('js-shopping-list').on('click', '.js-edit-item', event => {
     event.preventDefault;
     const newItemName = $('js-edit-item-input').val();
-    $('js-edit-item-input').val('');
     const id = getItemIdFromElement(event.currentTarget);
+    console.log(newItemName);
+    console.log(id);
     editItemInStore(newItemName, id);
+    $('js-edit-item-input').val('');
     render();
   });
-}
+};
 
 /**
  * This function will be our callback when the
@@ -185,6 +187,7 @@ const handleShoppingList = function () {
   handleItemCheckClicked();
   handleDeleteItemClicked();
   handleToggleFilterClick();
+  handleEditItem();
 };
 
 // when the page loads, call `handleShoppingList`
